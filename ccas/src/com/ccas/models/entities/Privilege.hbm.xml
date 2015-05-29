@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 29, 2015 10:57:01 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.ccas.models.entities.Privilege" table="privilege" catalog="ccas" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="addUser" type="java.lang.Boolean">
+            <column name="addUser" />
+        </property>
+        <property name="editUser" type="java.lang.Boolean">
+            <column name="editUser" />
+        </property>
+        <property name="deleteUser" type="java.lang.Boolean">
+            <column name="deleteUser" />
+        </property>
+        <property name="addAds" type="java.lang.Boolean">
+            <column name="addAds" />
+        </property>
+        <property name="editAds" type="java.lang.Boolean">
+            <column name="editAds" />
+        </property>
+        <property name="removeAds" type="java.lang.Boolean">
+            <column name="removeAds" />
+        </property>
+        <property name="addCategories" type="java.lang.Boolean">
+            <column name="addCategories" />
+        </property>
+        <property name="editCategories" type="java.lang.Boolean">
+            <column name="editCategories" />
+        </property>
+        <property name="removeCategories" type="java.lang.Boolean">
+            <column name="removeCategories" />
+        </property>
+        <property name="manageRoles" type="java.lang.Boolean">
+            <column name="manageRoles" />
+        </property>
+        <set name="roles" table="role" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="privilege_id" not-null="true" />
+            </key>
+            <one-to-many class="com.ccas.models.entities.Role" />
+        </set>
+    </class>
+</hibernate-mapping>

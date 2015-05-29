@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 29, 2015 10:57:01 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.ccas.models.entities.User" table="user" catalog="ccas" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="role" class="com.ccas.models.entities.Role" fetch="select">
+            <column name="role_id" not-null="true" />
+        </many-to-one>
+        <property name="username" type="string">
+            <column name="username" length="45" not-null="true" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="45" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
